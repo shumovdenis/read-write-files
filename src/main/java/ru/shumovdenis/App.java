@@ -12,12 +12,10 @@ public class App {
 
     public static void main(String[] args) {
 
-        HashMap<String, String> filesMap = new HashMap<>();
+        TreeMap<String, String> filesMap = new TreeMap<>();
 
-        Collection<File> all = new ArrayList<File>();
-        addTree(new File("rootDir"), all, filesMap);
-        System.out.println(all);
-        System.out.println(filesMap);
+        Collection<File> all = new ArrayList<>();
+        addTree(new File(rootDir), all, filesMap);
 
         TreeMap<String, String> sortedMap = new TreeMap<>(filesMap);
         sortedMap.entrySet();
@@ -46,7 +44,7 @@ public class App {
         }
     }
 
-    static void addTree(File file, Collection<File> all, HashMap<String, String> filesMap) {
+    static void addTree(File file, Collection<File> all, TreeMap<String, String> filesMap) {
         File[] children = file.listFiles();
         if (children != null) {
             for (File child : children) {
